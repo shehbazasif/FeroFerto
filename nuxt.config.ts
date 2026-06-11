@@ -37,7 +37,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Feroferto empowers independent bike riders with seamless onboarding, verification, payroll, and performance coordination across delivery platforms like EFOOD and Volt.",
+            "Feroferto empowers independent bike riders with seamless onboarding, verification, payroll, and performance coordination across delivery platforms like EFOOD and Wolt.",
         },
         {
           name: "theme-color",

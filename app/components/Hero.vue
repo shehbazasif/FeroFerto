@@ -1,5 +1,5 @@
 <template>
-  <section class="relative overflow-hidden bg-neutral-50 pt-28 pb-24 md:pb-32">
+  <section class="relative overflow-hidden bg-neutral-50 pt-28 pb-18 md:pb-24">
     <div
       class="absolute inset-x-0 top-0 h-96 bg-gradient-to-br from-primary-50 to-neutral-50 opacity-90"
     ></div>
@@ -20,7 +20,7 @@
           <span
             class="inline-flex h-2.5 w-2.5 rounded-full bg-primary-600 animate-pulse"
           ></span>
-          Trusted by EFOOD, Volt, and growing rider communities
+          Trusted by EFOOD, Wolt, and growing rider communities
         </div>
 
         <div>
@@ -31,7 +31,7 @@
             coordination.
           </h1>
           <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            Feroferto connects independent bike riders with EFOOD, Volt, and
+            Feroferto connects independent bike riders with EFOOD, Wolt, and
             major delivery platforms through seamless onboarding, compliance,
             accessories management, payroll automation, and live workforce
             coordination.
@@ -103,12 +103,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div
-      class="pointer-events-none absolute inset-x-0 bottom-0 -mb-6 flex justify-center"
-    >
-      <div class="h-16 w-16 rounded-full bg-white/90 shadow-3d"></div>
     </div>
   </section>
 </template>

@@ -20,7 +20,7 @@ definePageMeta({
     {
       name: "description",
       content:
-        "Feroferto connects independent bike riders with EFOOD, Volt, and major delivery platforms through premium onboarding, payroll, and performance coordination.",
+        "Feroferto connects independent bike riders with EFOOD, Wolt, and major delivery platforms through premium onboarding, payroll, and performance coordination.",
     },
     {
       property: "og:title",
