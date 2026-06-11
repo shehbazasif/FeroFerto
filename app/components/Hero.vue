@@ -79,28 +79,18 @@
           class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary-500/15 via-transparent to-transparent shadow-[0_60px_170px_-80px_rgba(109,45,217,0.35)]"
         ></div>
         <div
-          class="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-slate-50 shadow-3d"
+          class="relative overflow-hidden rounded-md border border-slate-200/80 bg-slate-50 shadow-3d"
         >
           <NuxtImg
-            src="https://images.unsplash.com/photo-1547649432-ba9d1d1b91f1?w=1200&h=800&fit=crop"
+            src="/images/Bike rider Courier.jpeg"
             alt="Rider on a bicycle in motion"
-            class="h-[420px] w-full object-cover"
+            class="h-[500px] w-full object-cover"
             sizes="(max-width: 768px) 100vw, 700px"
             loading="lazy"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"
           ></div>
-          <div
-            class="absolute left-6 bottom-6 rounded-3xl bg-white/85 p-5 shadow-3d-soft backdrop-blur-md ring-1 ring-slate-200/60"
-          >
-            <p class="text-sm uppercase tracking-[0.3em] text-slate-500">
-              Live coordination
-            </p>
-            <p class="mt-2 text-xl font-semibold text-slate-900">
-              Dynamic rider routing & status updates
-            </p>
-          </div>
         </div>
       </div>
     </div>
