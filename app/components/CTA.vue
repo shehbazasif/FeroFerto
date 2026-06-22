@@ -125,7 +125,7 @@
             <p class="text-3xl font-semibold text-primary-700">📧</p>
             <p class="mt-4 font-semibold text-slate-900">Email</p>
             <p class="mt-2 text-sm text-primary-700 font-medium">
-              info@feroferto.com
+              info@feroferto.gr
             </p>
           </div>
           <div class="rounded-3xl bg-white p-6 text-center shadow-sm">

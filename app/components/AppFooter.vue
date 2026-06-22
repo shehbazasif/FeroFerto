@@ -4,10 +4,12 @@
       <div class="grid gap-12 md:grid-cols-4">
         <div>
           <div class="mb-4 flex items-center gap-3">
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-primary-600 to-primary-700 text-white"
-            >
-              ⚡
+            <div class="flex h-10 w-10 items-center justify-center">
+              <NuxtImg
+                src="/images/logo.png"
+                alt="FeroFerto Logo"
+                class="h-10 w-10"
+              />
             </div>
             <div>
               <p class="text-sm uppercase tracking-[0.3em] text-primary-700">
@@ -47,7 +49,11 @@
         <div>
           <p class="mb-4 font-semibold text-slate-900">Company</p>
           <ul class="space-y-3 text-sm text-slate-400">
-            <li><a href="#" class="hover:text-primary-300">About</a></li>
+            <li>
+              <NuxtLink href="/about" class="hover:text-primary-300"
+                >About</NuxtLink
+              >
+            </li>
             <li><a href="#" class="hover:text-primary-300">Blog</a></li>
             <li><a href="#" class="hover:text-primary-300">Careers</a></li>
             <li><a href="#cta" class="hover:text-primary-300">Contact</a></li>

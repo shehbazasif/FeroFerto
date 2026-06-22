@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   image: {
     quality: 80,
-    format: ["webp", "jpeg", "png"],
+    format: ["webp", "jpeg", "png", "jpeg"],
     screens: {
       xs: 320,
       sm: 640,
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/png",
-          href: "/image.png",
+          href: "/image.png ",
         },
       ],
     },
