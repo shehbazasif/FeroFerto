@@ -6,7 +6,7 @@
     <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
       <!-- Logo with creative styling -->
       <a
-        href="#"
+        href="/"
         class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-700"
       >
         <NuxtImg
@@ -61,6 +61,15 @@
             class="text-lg font-bold text-slate-700 relative group hover:text-primary-700 transition-colors duration-200"
           >
             About Us
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-700 group-hover:w-full transition-all duration-300"
+            ></span>
+          </a>
+          <a
+            href="/contact"
+            class="text-lg font-bold text-slate-700 relative group hover:text-primary-700 transition-colors duration-200"
+          >
+            Contact
             <span
               class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-700 group-hover:w-full transition-all duration-300"
             ></span>
@@ -143,12 +152,19 @@
           >
             Testimonials
           </a>
-           <a
+          <a
             @click="closeMenu"
-            href="/about""
+            href="/about"
             class="px-4 py-2 rounded-lg text-slate-700 hover:text-primary-700 hover:bg-primary-50/50 transition-all duration-200 font-medium"
           >
             About Us
+          </a>
+          <a
+            @click="closeMenu"
+            href="/contact"
+            class="px-4 py-2 rounded-lg text-slate-700 hover:text-primary-700 hover:bg-primary-50/50 transition-all duration-200 font-medium"
+          >
+            Contact
           </a>
           <button
             @click="scrollToContact"

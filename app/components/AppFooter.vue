@@ -56,7 +56,11 @@
             </li>
             <li><a href="#" class="hover:text-primary-300">Blog</a></li>
             <li><a href="#" class="hover:text-primary-300">Careers</a></li>
-            <li><a href="#cta" class="hover:text-primary-300">Contact</a></li>
+            <li>
+              <NuxtLink href="/contact" class="hover:text-primary-300"
+                >Contact</NuxtLink
+              >
+            </li>
           </ul>
         </div>
 

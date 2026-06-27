@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="py-24 bg-white">
+  <section id="services" class="py-10 bg-white">
     <div class="mx-auto max-w-7xl px-6">
       <div class="text-center mb-16">
         <p
@@ -51,7 +51,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Service } from "~/types";
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+}
 
 const services: Service[] = [
   {

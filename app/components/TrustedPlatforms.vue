@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-neutral-50">
+  <section class="bg-neutral-50 pb-10">
     <div class="mx-auto max-w-7xl px-6">
       <div class="text-center mb-12">
         <p
