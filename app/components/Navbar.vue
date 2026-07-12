@@ -78,20 +78,26 @@
       </div>
 
       <!-- CTA and Menu buttons -->
-      <div class="flex items-center gap-3">
-        <button
-          @click="scrollToContact"
-          class="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-primary-500/50 hover:shadow-2xl hover:-translate-y-0.5 relative group overflow-hidden"
+      <div class="flex items-center gap-2 sm:gap-3">
+        <NuxtLink
+          to="/join/rider"
+          class="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white px-4 py-2.5 text-sm font-semibold text-primary-700 shadow-sm transition-all duration-300 hover:border-primary-400 hover:bg-primary-50 hover:-translate-y-0.5"
+        >
+          Become A Rider
+        </NuxtLink>
+        <NuxtLink
+          to="/join/partner"
+          class="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-primary-500/50 hover:shadow-2xl hover:-translate-y-0.5 relative group overflow-hidden"
         >
           <span
             class="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           ></span>
-          <span class="relative z-10">Get Started</span>
+          <span class="relative z-10">Become A Partner</span>
           <span
             class="relative z-10 group-hover:translate-x-1 transition-transform duration-300"
             >→</span
           >
-        </button>
+        </NuxtLink>
 
         <!-- Enhanced mobile menu toggle -->
         <button
@@ -166,12 +172,20 @@
           >
             Contact
           </a>
-          <button
-            @click="scrollToContact"
-            class="mt-4 w-full rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-5 py-3 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 shadow-md"
+          <NuxtLink
+            @click="closeMenu"
+            to="/join/rider"
+            class="mt-2 w-full rounded-full border border-primary-200 bg-white px-5 py-3 text-center text-primary-700 font-semibold transition-all duration-200 hover:border-primary-400 hover:bg-primary-50"
           >
-            Get Started
-          </button>
+            Become A Rider
+          </NuxtLink>
+          <NuxtLink
+            @click="closeMenu"
+            to="/join/partner"
+            class="mt-2 w-full rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-5 py-3 text-center text-white font-semibold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 shadow-md"
+          >
+            Become A Partner
+          </NuxtLink>
         </div>
       </div>
     </transition>
