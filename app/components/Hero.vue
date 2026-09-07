@@ -169,15 +169,13 @@ onUnmounted(() => {
     <div
       class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-6 px-5"
     >
-      <p
-        class="font-display text-lg font-semibold text-slate-600"
-      >
+      <p class="font-display text-lg font-semibold text-slate-600">
         Riders supplied to
       </p>
-      <img src="/public/images/efood.png" alt="EFOOD" class="h-7 w-auto opacity-80" />
+      <img src="/images/EFOOD.png" alt="EFOOD" class="h-7 w-auto opacity-80" />
       Efood
       <img
-        src="/public/images/wolt.png"
+        src="/images/wolt.png"
         alt="Wolt"
         class="h-7 w-auto opacity-80"
       />Wolt
