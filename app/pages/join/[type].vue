@@ -1,9 +1,9 @@
 <template>
+  <Navbar />
   <main
     class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.12),_transparent_55%)] px-4 py-20 sm:px-6 lg:px-8"
   >
     <div class="mx-auto flex max-w-6xl flex-col gap-8">
-      <Navbar />
       <section
         class="rounded-[2rem] border border-slate-200/70 bg-white/80 p-8 shadow-2xl shadow-slate-200/60 backdrop-blur xl:p-12"
       >

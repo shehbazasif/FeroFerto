@@ -1,107 +1,146 @@
+<script setup lang="ts">
+// Nuxt Head Management
+useHead({
+  title: "FeroFerto — Rider Workforce Enablement for Delivery Platforms",
+  meta: [
+    {
+      name: "description",
+      content:
+        "FeroFerto onboards, verifies, equips and pays delivery riders for EFOOD, Wolt and regional platforms — with a rider portal and admin console.",
+    },
+    { property: "og:title", content: "FeroFerto — Rider Workforce Enablement" },
+    {
+      property: "og:description",
+      content:
+        "Onboarding, compliance, gear, payroll and live coordination for delivery rider fleets.",
+    },
+  ],
+});
+
+// Mock Asset Paths (Replace with your actual assets/imports)
+const heroAsset = {
+  url: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?auto=format&fit=crop&q=80&w=1200",
+};
+const efoodAsset = { url: "/images/efood-logo.svg" };
+const woltAsset = { url: "/images/wolt-logo.svg" };
+
+// Page Data Arrays
+const stats = ref([
+  { label: "Active riders", value: "1,200+" },
+  { label: "Cities covered", value: "14" },
+  { label: "Shift fill rate", value: "99.4%" },
+]);
+</script>
+
 <template>
-  <section class="relative overflow-hidden bg-neutral-50 pt-28 pb-18 md:pb-24">
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="pointer-events-none absolute inset-0 bg-grid opacity-70" />
     <div
-      class="absolute inset-x-0 top-0 h-96 bg-gradient-to-br from-primary-50 to-neutral-50 opacity-90"
-    ></div>
-    <div
-      class="absolute left-1/4 top-16 h-72 w-72 rounded-full bg-primary-200/70 blur-3xl"
-    ></div>
-    <div
-      class="absolute right-0 top-32 h-80 w-80 rounded-full bg-primary-300/30 blur-3xl"
-    ></div>
-
-    <div
-      class="relative mx-auto flex max-w-7xl flex-col gap-16 px-6 lg:flex-row lg:items-center lg:justify-between"
+      class="relative mx-auto grid max-w-7xl gap-14 px-5 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-10"
     >
-      <div class="max-w-2xl space-y-8">
-        <div
-          class="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm text-slate-600 shadow-sm backdrop-blur-md"
+      <div>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-card"
         >
-          <span
-            class="inline-flex h-2.5 w-2.5 rounded-full bg-primary-600 animate-pulse"
-          ></span>
-          Trusted by EFOOD, Wolt, and growing rider communities
+          <span class="size-2 animate-pulse rounded-full bg-primary" />
+          Live fleets on EFOOD & Wolt
+        </span>
+
+        <h1 class="mt-6 text-[2.7rem] font-bold leading-[1.02] sm:text-6xl">
+          The operating layer between
+          <span class="text-primary">riders</span> and delivery platforms.
+        </h1>
+
+        <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
+          FeroFerto sources, verifies, equips and pays delivery riders — then
+          keeps every shift covered. One team for onboarding, compliance, gear,
+          payroll and daily coordination.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button as-child variant="signal" size="xl">
+            <NuxtLink to="/apply/rider" class="inline-flex items-center gap-2">
+              Apply as a rider
+              <svg
+                class="size-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </NuxtLink>
+          </Button>
+          <Button as-child variant="outline" size="xl">
+            <NuxtLink to="/for-partners">Partner with us</NuxtLink>
+          </Button>
         </div>
 
-        <div>
-          <h1
-            class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl md:text-6xl"
-          >
-            Premium rider workforce enablement with enterprise-grade
-            coordination.
-          </h1>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            Feroferto connects independent bike riders with EFOOD, Wolt, and
-            major delivery platforms through seamless onboarding, compliance,
-            accessories management, payroll automation, and live workforce
-            coordination.
-          </p>
-        </div>
-
-        <div class="flex flex-col gap-4 sm:flex-row">
-          <button
-            @click="scrollToContact"
-            class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-4 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-3d-soft"
-          >
-            Start a pilot
-          </button>
-          <button
-            class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-sm font-semibold text-slate-700 transition-colors duration-300 hover:border-primary-300 hover:text-primary-700"
-          >
-            Watch demo
-          </button>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-3">
+        <div class="mt-10 grid max-w-lg grid-cols-3 gap-4">
           <div
-            class="rounded-3xl bg-white/90 p-5 text-slate-900 shadow-3d-soft ring-1 ring-primary-100"
+            v-for="s in stats.slice(0, 3)"
+            :key="s.label"
+            class="rounded-xl border border-border bg-card p-4 shadow-card"
           >
-            <p class="text-2xl font-semibold text-primary-700">15 min</p>
-            <p class="mt-1 text-sm text-slate-500">Average rider onboarding</p>
-          </div>
-          <div
-            class="rounded-3xl bg-white/90 p-5 text-slate-900 shadow-3d-soft ring-1 ring-primary-100"
-          >
-            <p class="text-2xl font-semibold text-primary-700">99%</p>
-            <p class="mt-1 text-sm text-slate-500">Platform uptime SLA</p>
-          </div>
-          <div
-            class="rounded-3xl bg-white/90 p-5 text-slate-900 shadow-3d-soft ring-1 ring-primary-100"
-          >
-            <p class="text-2xl font-semibold text-primary-700">24/7</p>
-            <p class="mt-1 text-sm text-slate-500">Live rider support</p>
+            <p class="font-display text-2xl font-bold text-primary">
+              {{ s.value }}
+            </p>
+            <p class="mt-1 text-xs leading-5 text-muted-foreground">
+              {{ s.label }}
+            </p>
           </div>
         </div>
       </div>
 
-      <div class="relative mx-auto w-full max-w-3xl">
+      <div class="relative">
         <div
-          class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary-500/15 via-transparent to-transparent shadow-[0_60px_170px_-80px_rgba(109,45,217,0.35)]"
-        ></div>
-        <div
-          class="relative overflow-hidden rounded-md border border-slate-200/80 bg-slate-50 shadow-3d"
+          class="overflow-hidden rounded-3xl border border-border shadow-lift"
         >
-          <NuxtImg
-            src="/images/Bike rider Courier.jpeg"
-            alt="Rider on a bicycle in motion"
-            class="h-[500px] w-full object-cover"
-            sizes="(max-width: 768px) 100vw, 700px"
-            loading="lazy"
+          <img
+            :src="heroAsset.url"
+            alt="FeroFerto courier riding through the city with a delivery bag"
+            class="h-[26rem] w-full object-cover lg:h-[32rem]"
           />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"
-          ></div>
+        </div>
+        <div
+          class="absolute -bottom-6 left-6 right-6 rounded-2xl border border-border bg-card/95 p-5 shadow-lift backdrop-blur sm:left-10 sm:right-auto sm:w-72"
+        >
+          <p
+            class="text-xs font-semibold uppercase tracking-widest text-muted-foreground"
+          >
+            Dispatch status
+          </p>
+          <div class="mt-3 space-y-2.5 text-sm">
+            <Row label="Athens · evening" value="42 / 42 riders" ok />
+            <Row label="Thessaloniki · night" value="17 / 18 riders" />
+            <Row label="Patras · weekend" value="12 / 12 riders" ok />
+          </div>
         </div>
       </div>
     </div>
   </section>
-</template>
 
-<script setup lang="ts">
-const scrollToContact = () => {
-  const contactSection = document.getElementById("cta");
-  if (contactSection) {
-    contactSection.scrollIntoView({ behavior: "smooth" });
-  }
-};
-</script>
+  <!-- Platforms -->
+  <div class="border-b border-border bg-secondary/40 py-8">
+    <div
+      class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-6 px-5"
+    >
+      <p
+        class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground"
+      >
+        Riders supplied to
+      </p>
+      <img :src="efoodAsset.url" alt="EFOOD" class="h-7 w-auto opacity-80" />
+      <img :src="woltAsset.url" alt="Wolt" class="h-7 w-auto opacity-80" />
+      <span class="font-display text-lg font-semibold text-muted-foreground">
+        + regional networks
+      </span>
+    </div>
+  </div>
+  <div class="0...3214566789"></div>
+</template>
