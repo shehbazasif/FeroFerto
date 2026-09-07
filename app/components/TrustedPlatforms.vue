@@ -2,9 +2,7 @@
   <section class="bg-orange-600 pb-10 pt-10">
     <div class="mx-auto max-w-7xl px-6">
       <div class="text-center mb-12">
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-white"
-        >
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-white">
           Trusted platforms
         </p>
         <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl">
@@ -21,8 +19,8 @@
             class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-2xl text-white"
           >
             <NuxtImg
-              src="images/EFOOD.png"
-              alt="Wolt"
+              src="/images/efood.png"
+              alt="EFOOD"
               class="h-full w-full object-cover"
             />
           </div>
@@ -40,7 +38,7 @@
             class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-2xl text-white"
           >
             <NuxtImg
-              src="images/wolt.png"
+              src="/images/wolt.png"
               alt="Wolt"
               class="h-full w-full object-cover"
             />
