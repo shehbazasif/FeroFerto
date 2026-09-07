@@ -30,6 +30,51 @@ const stats = ref([
   { label: "Cities covered", value: "14" },
   { label: "Shift fill rate", value: "99.4%" },
 ]);
+
+const headline = {
+  before: "The operating layer between ",
+  riders: "Riders",
+  after: " and delivery platforms.",
+};
+
+const typedBefore = ref("");
+const typedRiders = ref("");
+const typedAfter = ref("");
+const isTyping = ref(false);
+let typingCancelled = false;
+
+const typeText = async (
+  target: { value: string },
+  text: string,
+  delay = 100,
+) => {
+  target.value = "";
+
+  for (const character of text) {
+    if (typingCancelled) return;
+    target.value += character;
+    await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+};
+
+onMounted(async () => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    typedBefore.value = headline.before;
+    typedRiders.value = headline.riders;
+    typedAfter.value = headline.after;
+    return;
+  }
+
+  isTyping.value = true;
+  await typeText(typedBefore, headline.before);
+  await typeText(typedRiders, headline.riders, 60);
+  await typeText(typedAfter, headline.after);
+  isTyping.value = false;
+});
+
+onUnmounted(() => {
+  typingCancelled = true;
+});
 </script>
 
 <template>
@@ -40,25 +85,41 @@ const stats = ref([
     >
       <div>
         <span
-          class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-card"
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-600 shadow-card"
         >
           <span class="size-2 animate-pulse rounded-full bg-primary" />
           Live fleets on EFOOD & Wolt
         </span>
 
-        <h1 class="mt-6 text-[2.7rem] font-bold leading-[1.02] sm:text-6xl">
-          The operating layer between
-          <span class="text-primary">riders</span> and delivery platforms.
+        <h1
+          class="mt-6 text-[2.7rem] font-bold leading-[1.02] text-slate-900 sm:text-6xl"
+        >
+          <span aria-hidden="true">
+            {{ typedBefore
+            }}<span class="text-orange-600">{{ typedRiders }}</span
+            >{{ typedAfter
+            }}<span
+              v-if="isTyping"
+              class="ml-1 inline-block h-[0.85em] w-0.5 translate-y-1 bg-orange-600 align-baseline animate-pulse"
+            />
+          </span>
+          <span class="sr-only"
+            >The operating layer between Riders and delivery platforms.</span
+          >
         </h1>
 
-        <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
+        <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
           FeroFerto sources, verifies, equips and pays delivery riders — then
           keeps every shift covered. One team for onboarding, compliance, gear,
           payroll and daily coordination.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <Button as-child variant="signal" size="xl">
+          <Button
+            as-child
+            size="xl"
+            class="bg-orange-600 text-white shadow-sm transition-colors hover:bg-orange-700 focus-visible:ring-orange-500"
+          >
             <NuxtLink to="/apply/rider" class="inline-flex items-center gap-2">
               Apply as a rider
               <svg
@@ -77,7 +138,7 @@ const stats = ref([
             </NuxtLink>
           </Button>
           <Button as-child variant="outline" size="xl">
-            <NuxtLink to="/for-partners">Partner with us</NuxtLink>
+            <NuxtLink to="/auth">Get started</NuxtLink>
           </Button>
         </div>
 
@@ -87,10 +148,10 @@ const stats = ref([
             :key="s.label"
             class="rounded-xl border border-border bg-card p-4 shadow-card"
           >
-            <p class="font-display text-2xl font-bold text-primary">
+            <p class="font-display text-2xl font-bold text-slate-900">
               {{ s.value }}
             </p>
-            <p class="mt-1 text-xs leading-5 text-muted-foreground">
+            <p class="mt-1 text-xs leading-5 text-slate-600">
               {{ s.label }}
             </p>
           </div>
@@ -110,9 +171,7 @@ const stats = ref([
         <div
           class="absolute -bottom-6 left-6 right-6 rounded-2xl border border-border bg-card/95 p-5 shadow-lift backdrop-blur sm:left-10 sm:right-auto sm:w-72"
         >
-          <p
-            class="text-xs font-semibold uppercase tracking-widest text-muted-foreground"
-          >
+          <p class="text-xs font-semibold uppercase tracking-widest text-white">
             Dispatch status
           </p>
           <div class="mt-3 space-y-2.5 text-sm">
@@ -131,13 +190,13 @@ const stats = ref([
       class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-6 px-5"
     >
       <p
-        class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground"
+        class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-600"
       >
         Riders supplied to
       </p>
       <img :src="efoodAsset.url" alt="EFOOD" class="h-7 w-auto opacity-80" />
       <img :src="woltAsset.url" alt="Wolt" class="h-7 w-auto opacity-80" />
-      <span class="font-display text-lg font-semibold text-muted-foreground">
+      <span class="font-display text-lg font-semibold text-slate-600">
         + regional networks
       </span>
     </div>

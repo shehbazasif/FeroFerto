@@ -1,47 +1,35 @@
 <script setup lang="ts">
 interface SocialItems {
   label: string;
-  shortLabel: string;
-  icon: "facebook" | "instagram" | "youtube" | "twitter" | "linkedin";
+  icon: string;
   href: string;
-  title: string;
 }
 
 const socials: readonly SocialItems[] = [
   {
     label: "Facebook",
-    shortLabel: "f",
-    icon: "facebook",
+    icon: "simple-icons:facebook",
     href: "https://facebook.com",
-    title: "Follow us on Facebook",
   },
   {
     label: "Instagram",
-    shortLabel: "◎",
-    icon: "instagram",
+    icon: "simple-icons:instagram",
     href: "https://instagram.com",
-    title: "Follow us on Instagram",
   },
   {
     label: "YouTube",
-    shortLabel: "▶",
-    icon: "youtube",
+    icon: "simple-icons:youtube",
     href: "https://youtube.com",
-    title: "Subscribe to our YouTube channel",
   },
   {
     label: "Twitter",
-    shortLabel: "X",
-    icon: "twitter",
+    icon: "simple-icons:twitter",
     href: "https://twitter.com",
-    title: "Follow us on Twitter",
   },
   {
     label: "LinkedIn",
-    shortLabel: "in",
-    icon: "linkedin",
+    icon: "simple-icons:linkedin",
     href: "https://linkedin.com",
-    title: "Connect with us on LinkedIn",
   },
 ] as const;
 </script>
@@ -103,7 +91,9 @@ const socials: readonly SocialItems[] = [
               >
             </li>
             <li><a href="#" class="hover:text-primary-300">Blog</a></li>
-            <li><a href="#" class="hover:text-primary-300">Careers</a></li>
+            <li>
+              <a href="/career" class="hover:text-primary-300">Careers</a>
+            </li>
             <li>
               <NuxtLink href="/contact" class="hover:text-primary-300"
                 >Contact</NuxtLink
@@ -136,69 +126,11 @@ const socials: readonly SocialItems[] = [
             rel="noreferrer"
             class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-950"
           >
-            <svg
-              v-if="social.icon === 'facebook'"
+            <Icon
+              :name="social.icon"
               class="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
               aria-hidden="true"
-            >
-              <path
-                d="M13.5 21v-8h2.75l.4-3h-3.15V8.08c0-.87.24-1.46 1.5-1.46h1.8V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.48V10H7v3h2.82v8h3.68Z"
-              />
-            </svg>
-            <svg
-              v-else-if="social.icon === 'instagram'"
-              class="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              aria-hidden="true"
-            >
-              <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
-              <circle cx="12" cy="12" r="4" />
-              <circle
-                cx="17.6"
-                cy="6.5"
-                r="1"
-                fill="currentColor"
-                stroke="none"
-              />
-            </svg>
-            <svg
-              v-else-if="social.icon === 'youtube'"
-              class="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M21.6 7.2a2.99 2.99 0 0 0-2.1-2.1C17.65 4.6 12 4.6 12 4.6s-5.65 0-7.5.5a2.99 2.99 0 0 0-2.1 2.1c-.5 1.85-.5 4.8-.5 4.8s0 2.95.5 4.8a2.99 2.99 0 0 0 2.1 2.1c1.85.5 7.5.5 7.5.5s5.65 0 7.5-.5a2.99 2.99 0 0 0 2.1-2.1c.5-1.85.5-4.8.5-4.8s0-2.95-.5-4.8ZM10.1 15.3V8.7l5.7 3.3-5.7 3.3Z"
-              />
-            </svg>
-            <svg
-              v-else-if="social.icon === 'twitter'"
-              class="h-[17px] w-[17px]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M18.9 2.5h3.68l-8.04 9.19L24 21.5h-7.4l-5.8-7.58-6.63 7.58H.48l7.85-8.97L0 2.5h7.59l5.24 6.93L18.9 2.5Zm-1.29 17.05h2.04L6.48 4.35H4.29l13.32 15.2Z"
-              />
-            </svg>
-            <svg
-              v-else
-              class="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                d="M5.5 3.5A2.5 2.5 0 1 1 5.5 8a2.5 2.5 0 0 1 0-4.5ZM3.3 9.5h4.4v11H3.3v-11ZM10.4 9.5h4.2V11c.6-1 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v5.4h-4.4v-4.8c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7v4.9h-4.5v-11Z"
-              />
-            </svg>
+            />
           </NuxtLink>
         </div>
       </div>

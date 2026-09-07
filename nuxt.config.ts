@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxt/icon"],
 
   image: {
     quality: 80,
