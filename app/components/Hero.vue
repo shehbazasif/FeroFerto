@@ -174,10 +174,10 @@ onUnmounted(() => {
       >
         Riders supplied to
       </p>
-      <img src="/images/efood.png" alt="EFOOD" class="h-7 w-auto opacity-80" />
+      <img src="/public/images/efood.png" alt="EFOOD" class="h-7 w-auto opacity-80" />
       Efood
       <img
-        src="/images/wolt.png"
+        src="/public/images/wolt.png"
         alt="Wolt"
         class="h-7 w-auto opacity-80"
       />Wolt

@@ -19,7 +19,7 @@
             class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-2xl text-white"
           >
             <NuxtImg
-              src="/images/efood.png"
+              src="/public/images/efood.png"
               alt="EFOOD"
               class="h-full w-full object-cover"
             />
