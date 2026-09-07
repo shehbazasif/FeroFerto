@@ -46,7 +46,7 @@ let typingCancelled = false;
 const typeText = async (
   target: { value: string },
   text: string,
-  delay = 100,
+  delay = 40,
 ) => {
   target.value = "";
 
@@ -67,7 +67,7 @@ onMounted(async () => {
 
   isTyping.value = true;
   await typeText(typedBefore, headline.before);
-  await typeText(typedRiders, headline.riders, 60);
+  await typeText(typedRiders, headline.riders, 40);
   await typeText(typedAfter, headline.after);
   isTyping.value = false;
 });
@@ -109,7 +109,7 @@ onUnmounted(() => {
         </h1>
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-          FeroFerto sources, verifies, equips and pays delivery riders — then
+          FeroFerto sources, verifies, equips and pays delivery riders then
           keeps every shift covered. One team for onboarding, compliance, gear,
           payroll and daily coordination.
         </p>
@@ -118,26 +118,18 @@ onUnmounted(() => {
           <Button
             as-child
             size="xl"
-            class="bg-orange-600 text-white shadow-sm transition-colors hover:bg-orange-700 focus-visible:ring-orange-500"
+            class="rounded font-semibold px-3 py-3 bg-orange-600 text-white shadow-sm transition-colors hover:bg-orange-700 focus-visible:ring-orange-500"
           >
             <NuxtLink to="/apply/rider" class="inline-flex items-center gap-2">
-              Apply as a rider
-              <svg
-                class="size-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
+              Become Rider
             </NuxtLink>
           </Button>
-          <Button as-child variant="outline" size="xl">
+          <Button
+            as-child
+            variant="outline"
+            size="xl"
+            class="rounded font-semibold px-3 py-3 bg-black text-white shadow-sm transition-colors hover:bg-slate-700 focus-visible:ring-orange-500"
+          >
             <NuxtLink to="/auth">Get started</NuxtLink>
           </Button>
         </div>
@@ -167,18 +159,6 @@ onUnmounted(() => {
             alt="FeroFerto courier riding through the city with a delivery bag"
             class="h-[26rem] w-full object-cover lg:h-[32rem]"
           />
-        </div>
-        <div
-          class="absolute -bottom-6 left-6 right-6 rounded-2xl border border-border bg-card/95 p-5 shadow-lift backdrop-blur sm:left-10 sm:right-auto sm:w-72"
-        >
-          <p class="text-xs font-semibold uppercase tracking-widest text-white">
-            Dispatch status
-          </p>
-          <div class="mt-3 space-y-2.5 text-sm">
-            <Row label="Athens · evening" value="42 / 42 riders" ok />
-            <Row label="Thessaloniki · night" value="17 / 18 riders" />
-            <Row label="Patras · weekend" value="12 / 12 riders" ok />
-          </div>
         </div>
       </div>
     </div>

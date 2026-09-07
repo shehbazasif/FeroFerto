@@ -150,7 +150,7 @@ const closeMenu = () => {
         </NuxtLink>
         <NuxtLink
           to="/join/riders"
-          class="whitespace-nowrap rounded-full bg-orange-600 px-5 py-2.5 text-[0.9rem] font-semibold text-white shadow-sm transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          class="whitespace-nowrap rounded bg-orange-600 px-5 py-2 text-[0.9rem] font-semibold text-white shadow-sm transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         >
           Become a rider
         </NuxtLink>
