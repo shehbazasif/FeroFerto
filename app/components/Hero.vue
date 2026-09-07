@@ -170,14 +170,19 @@ onUnmounted(() => {
       class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-6 px-5"
     >
       <p
-        class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-600"
+        class="font-display text-lg font-semibold text-slate-600"
       >
         Riders supplied to
       </p>
-      <img :src="efoodAsset.url" alt="EFOOD" class="h-7 w-auto opacity-80" />
-      <img :src="woltAsset.url" alt="Wolt" class="h-7 w-auto opacity-80" />
+      <img src="/images/efood.png" alt="EFOOD" class="h-7 w-auto opacity-80" />
+      Efood
+      <img
+        src="/images/wolt.png"
+        alt="Wolt"
+        class="h-7 w-auto opacity-80"
+      />Wolt
       <span class="font-display text-lg font-semibold text-slate-600">
-        + regional networks
+        + Regional networks
       </span>
     </div>
   </div>

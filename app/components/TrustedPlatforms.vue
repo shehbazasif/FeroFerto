@@ -1,20 +1,20 @@
 <template>
-  <section class="bg-neutral-50 pb-10 pt-10">
+  <section class="bg-orange-600 pb-10 pt-10">
     <div class="mx-auto max-w-7xl px-6">
       <div class="text-center mb-12">
         <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+          class="text-sm font-semibold uppercase tracking-[0.3em] text-white"
         >
           Trusted platforms
         </p>
-        <h2 class="mt-4 text-3xl font-semibold text-slate-900 sm:text-4xl">
+        <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl">
           Platform partnerships built for reliability
         </h2>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div
-          class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
+          class="rounded border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
           data-scroll-fade
         >
           <div
@@ -33,7 +33,7 @@
         </div>
 
         <div
-          class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
+          class="rounded border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
           data-scroll-fade
         >
           <div
@@ -52,7 +52,7 @@
         </div>
 
         <div
-          class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
+          class="rounded border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
           data-scroll-fade
         >
           <div
@@ -69,7 +69,7 @@
         </div>
 
         <div
-          class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
+          class="rounded border border-slate-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-3d-soft"
           data-scroll-fade
         >
           <div
