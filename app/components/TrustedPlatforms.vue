@@ -1,10 +1,7 @@
 <template>
-  <section class="bg-orange-600 pb-10 pt-10">
+  <section class="bg-orange-600 py-6 pb-16">
     <div class="mx-auto max-w-7xl px-6">
       <div class="text-center mb-12">
-        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-white">
-          Trusted platforms
-        </p>
         <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl">
           Platform partnerships built for reliability
         </h2>

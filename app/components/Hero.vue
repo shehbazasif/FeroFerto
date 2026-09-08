@@ -21,8 +21,8 @@ useHead({
 const heroAsset = {
   url: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?auto=format&fit=crop&q=80&w=1200",
 };
-const efoodAsset = { url: "/images/efood-logo.svg" };
-const woltAsset = { url: "/images/wolt-logo.svg" };
+const efoodAsset = { url: "/images/EFOOD.png" };
+const woltAsset = { url: "/images/wolt.png" };
 
 // Page Data Arrays
 const stats = ref([
