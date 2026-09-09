@@ -4,11 +4,15 @@
   "description": "Feroferto - Rider Workforce Enablement Platform",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
