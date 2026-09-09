@@ -263,9 +263,9 @@
           </div>
         </div>
       </section>
-      <AppFooter />
     </div>
   </main>
+  <AppFooter />
 </template>
 
 <script setup lang="ts">
