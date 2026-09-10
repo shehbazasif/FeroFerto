@@ -124,7 +124,7 @@ const socials: readonly SocialItems[] = [
             :aria-label="social.label"
             target="_blank"
             rel="noreferrer"
-            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-950"
+            class="flex h-9 w-9 items-center justify-center bg-orange-600 rounded-full text-white hover:bg-slate-100 hover:text-orange-600"
           >
             <Icon
               :name="social.icon"
