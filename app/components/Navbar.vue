@@ -14,6 +14,7 @@ interface SocialLink {
 const navLinks: readonly NavItem[] = [
   { title: "Services", href: "/#services" },
   { title: "How it works", href: "/#workflow" },
+  { title: "Van rental", href: "/van-rental" },
   { title: "For riders", href: "/#why" },
   { title: "For partners", href: "/#testimonials" },
   { title: "About", href: "/about" },
