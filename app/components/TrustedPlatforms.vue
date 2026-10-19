@@ -51,7 +51,7 @@
           data-scroll-fade
         >
           <div
-            class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-2xl text-white"
+            class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded bg-primary-600 text-2xl text-white"
           >
             📦
           </div>
@@ -68,7 +68,7 @@
           data-scroll-fade
         >
           <div
-            class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-2xl text-white"
+            class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded bg-primary-600 text-2xl text-white"
           >
             🚀
           </div>
