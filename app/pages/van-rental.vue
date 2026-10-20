@@ -46,45 +46,55 @@ const driverForm = reactive<DriverApplication>({
 const fieldClass =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-100";
 
-const sendApplication = (subject: string, details: string) => {
-  const mailto = `mailto:info@feroferto.gr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(details)}`;
-  window.location.href = mailto;
+const rentalFeedback = ref("");
+const rentalFeedbackType = ref<"success" | "error" | "">("");
+const submittingRental = ref(false);
+const driverFeedback = ref("");
+const driverFeedbackType = ref<"success" | "error" | "">("");
+const submittingDriver = ref(false);
+
+const submitRentalApplication = async () => {
+  submittingRental.value = true;
+  rentalFeedback.value = "";
+  rentalFeedbackType.value = "";
+
+  try {
+    await $fetch("/api/van-application", {
+      method: "POST",
+      body: { type: "rental", ...rentalForm },
+    });
+    rentalFeedbackType.value = "success";
+    rentalFeedback.value =
+      "Your rental enquiry has been sent. We’ve also emailed a confirmation to you.";
+  } catch {
+    rentalFeedbackType.value = "error";
+    rentalFeedback.value =
+      "We couldn’t send your enquiry. Please try again or email van@feroferto.gr.";
+  } finally {
+    submittingRental.value = false;
+  }
 };
 
-const submitRentalApplication = () => {
-  const details = [
-    "Van rental enquiry",
-    `Company: ${rentalForm.company}`,
-    `Contact name: ${rentalForm.contactName}`,
-    `Email: ${rentalForm.email}`,
-    `Phone: ${rentalForm.phone}`,
-    `Delivery platform: ${rentalForm.platform || "Not provided"}`,
-    `Operating location: ${rentalForm.location}`,
-    `Preferred start date: ${rentalForm.startDate || "Not provided"}`,
-    "",
-    "Additional details:",
-    rentalForm.notes || "None",
-  ].join("\n");
+const submitDriverApplication = async () => {
+  submittingDriver.value = true;
+  driverFeedback.value = "";
+  driverFeedbackType.value = "";
 
-  sendApplication(`Van rental enquiry — ${rentalForm.company}`, details);
-};
-
-const submitDriverApplication = () => {
-  const details = [
-    "Van driver application",
-    `Full name: ${driverForm.fullName}`,
-    `Email: ${driverForm.email}`,
-    `Phone: ${driverForm.phone}`,
-    `Location: ${driverForm.location}`,
-    `Driving licence: ${driverForm.licence || "Not provided"}`,
-    `Driving experience: ${driverForm.experience || "Not provided"}`,
-    `Availability: ${driverForm.availability || "Not provided"}`,
-    "",
-    "Additional details:",
-    driverForm.notes || "None",
-  ].join("\n");
-
-  sendApplication(`Van driver application — ${driverForm.fullName}`, details);
+  try {
+    await $fetch("/api/van-application", {
+      method: "POST",
+      body: { type: "driver", ...driverForm },
+    });
+    driverFeedbackType.value = "success";
+    driverFeedback.value =
+      "Your driver application has been sent. We’ve also emailed a confirmation to you.";
+  } catch {
+    driverFeedbackType.value = "error";
+    driverFeedback.value =
+      "We couldn’t send your application. Please try again or email van@feroferto.gr.";
+  } finally {
+    submittingDriver.value = false;
+  }
 };
 
 useHead({
@@ -326,7 +336,10 @@ useHead({
                 the van, availability, and rental terms.
               </p>
 
-              <form class="mt-6 space-y-4" @submit.prevent="submitRentalApplication">
+              <form
+                class="mt-6 space-y-4"
+                @submit.prevent="submitRentalApplication"
+              >
                 <div class="grid gap-4 sm:grid-cols-2">
                   <label class="block text-sm font-medium text-slate-700">
                     Company name
@@ -415,10 +428,24 @@ useHead({
                 </label>
                 <button
                   type="submit"
+                  :disabled="submittingRental"
                   class="inline-flex w-full items-center justify-center rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white transition hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
-                  Send rental enquiry
+                  {{ submittingRental ? "Sending…" : "Send rental enquiry" }}
                 </button>
+                <p
+                  v-if="rentalFeedback"
+                  class="rounded-xl p-3 text-sm"
+                  :class="
+                    rentalFeedbackType === 'success'
+                      ? 'bg-emerald-50 text-emerald-800'
+                      : 'bg-red-50 text-red-800'
+                  "
+                  :role="rentalFeedbackType === 'error' ? 'alert' : 'status'"
+                  aria-live="polite"
+                >
+                  {{ rentalFeedback }}
+                </p>
               </form>
             </div>
 
@@ -528,16 +555,34 @@ useHead({
                 </label>
                 <button
                   type="submit"
+                  :disabled="submittingDriver"
                   class="inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
                 >
-                  Send driver application
+                  {{ submittingDriver ? "Sending…" : "Send driver application" }}
                 </button>
+                <p
+                  v-if="driverFeedback"
+                  class="rounded-xl p-3 text-sm"
+                  :class="
+                    driverFeedbackType === 'success'
+                      ? 'bg-emerald-50 text-emerald-800'
+                      : 'bg-red-50 text-red-800'
+                  "
+                  :role="driverFeedbackType === 'error' ? 'alert' : 'status'"
+                  aria-live="polite"
+                >
+                  {{ driverFeedback }}
+                </p>
               </form>
             </div>
           </div>
           <p class="mt-5 text-center text-sm text-slate-500">
-            Submitting opens a pre-addressed email in your email app. Your
-            application is sent when you send that email.
+            Your application is sent to
+            <a
+              href="mailto:van@feroferto.gr"
+              class="font-medium text-orange-700 underline underline-offset-2 hover:text-orange-800"
+              >van@feroferto.gr</a
+            >. We’ll also email a confirmation to the address you provide.
             <NuxtLink
               to="/contact"
               class="font-medium text-orange-700 underline underline-offset-2 hover:text-orange-800"
